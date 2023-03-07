@@ -37,7 +37,7 @@ public class MvcConfiguration implements WebMvcConfigurer{
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/testappdb");
 		dataSource.setUsername("root");
-		//FIXME: password
+		//password
 		dataSource.setPassword("");
 		
 		return dataSource;
