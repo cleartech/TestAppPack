@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface KPackSetService {
 
-    int save(KPackSet kPackSet);
+    void save(KPackSet kPackSet);
 
-    int delete(int id);
+    void delete(int id);
 
     KPackSet get(int id);
 

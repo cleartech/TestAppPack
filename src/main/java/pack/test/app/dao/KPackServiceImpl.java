@@ -20,21 +20,21 @@ public class KPackServiceImpl implements KPackService {
     }
 
     @Override
-    public int save(KPack kPack) {
+    public void save(KPack kPack) {
 
         String savePackQuery = "INSERT INTO kpacks (title, descr, cr_date) VALUES (?, ?, ?)";
 
-        return jdbcTemplate.update(savePackQuery, kPack.getTitle(), kPack.getDescription(), kPack.getCreationDate());
+        jdbcTemplate.update(savePackQuery, kPack.getTitle(), kPack.getDescription(), kPack.getCreationDate());
     }
 
     @Override
-    public int delete(int id) {
+    public void delete(int id) {
         final String deletePackQuery = "delete from kpacks where id = " + id;
         final String deletePacksQuery = "delete from pack_set_cross where pack_id = " + id;
 
         jdbcTemplate.update(deletePacksQuery);
 
-        return jdbcTemplate.update(deletePackQuery);
+        jdbcTemplate.update(deletePackQuery);
     }
 
     @Override

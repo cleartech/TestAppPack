@@ -32,7 +32,7 @@ public class KPackSetServiceImpl implements KPackSetService {
     }
 
     @Override
-    public int save(final KPackSet kPackSet) {
+    public void save(final KPackSet kPackSet) {
 
         final String setSaveQuery = "insert into kpacksets (title) values (?)";
 
@@ -56,8 +56,6 @@ public class KPackSetServiceImpl implements KPackSetService {
         if (kPackSet.getkPacks().size() != 0) {
             saveKPacksForSet(kPackSet, primaryKey);
         }
-
-        return primaryKey;
     }
 
     private void saveKPacksForSet(KPackSet set, int primaryKey) {
@@ -69,14 +67,14 @@ public class KPackSetServiceImpl implements KPackSetService {
     }
 
     @Override
-    public int delete(int id) {
+    public void delete(int id) {
 
         final String deleteSetQuery = "delete from kpacksets where id = " + id;
         final String deletePacksQuery = "delete from pack_set_cross where set_id = " + id;
 
         jdbcTemplate.update(deletePacksQuery);
 
-        return jdbcTemplate.update(deleteSetQuery);
+        jdbcTemplate.update(deleteSetQuery);
     }
 
     @Override

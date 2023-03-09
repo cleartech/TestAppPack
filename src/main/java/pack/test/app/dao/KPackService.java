@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface KPackService {
 
-    int save(KPack kPack);
+    void save(KPack kPack);
 
-    int delete(int id);
+    void delete(int id);
 
     KPack get(int id);
 
